@@ -9,11 +9,11 @@ Esse teste consiste em montar uma aplicação baseada em uma requisição HTTP, 
 
 Faça um fork e clone deste projeto, crie um branch (com seu nome), e siga os passos:
 
-```npm install ```
+```npm install´´´
 
 Apos fazer as instalações:
 
-```npm start ```
+```npm start´´´
 
 ## Instruções
 
@@ -25,7 +25,7 @@ Após o setup inicial, siga os pontos abaixo para a construção do app.
  * Ordenar os clientes por **"NOME"**;
  * Criar um filtro de busca por nome;
  * Criar uma paginação;
-3. Seguir a risca o **.psd**; 
+3. Seguir a risca o **.psd**;
 4. Suporte para IE9+, Chrome, Safari, Firefox+ :)
 5. Não será permitido alterar o **/users.json**;
 6. Você pode utilizar as tecnologias que achar melhor (frameworks de JS / CSS);
