@@ -9,11 +9,15 @@ Esse teste consiste em montar uma aplicação baseada em uma requisição HTTP, 
 
 Faça um fork e clone deste projeto, crie um branch (com seu nome), e siga os passos:
 
-```npm install´´´
+```
+npm install
+```
 
 Apos fazer as instalações:
 
-```npm start´´´
+```
+npm start
+```
 
 ## Instruções
 
