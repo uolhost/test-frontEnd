@@ -43,5 +43,7 @@ Após o setup inicial, siga os pontos abaixo para a construção do app.
 * Template Engines;
 
 ## Quem buscamos
-Queremos uma pessoa que gosta do que faz, que trabalhe em equipe e tenha vontade de inovar. QUERO ESCREVER MAIS..........
+Queremos uma pessoa que gosta do que faz, que trabalhe em equipe e tenha vontade de inovar. Sempre buscando atualização e soluções inovadoras.
+
+Se você se identificou, venha fazer parte do nosso time!
 
