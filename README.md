@@ -7,17 +7,19 @@ Montamos esse teste para conhecer os seus conhecimentos e habilidades em HTML, C
 
 Esse teste consiste em montar uma aplicação baseada em uma requisição HTTP, e irá renderizar os dados.
 
-Faça um fork e clone deste projeto, crie um branch (com seu nome), e siga os passos:
+Faça um fork, clone este projeto e siga os passos:
 
 ```
 npm install
 ```
 
-Apos fazer as instalações:
+Após fazer as instalações:
 
 ```
 npm start
 ```
+
+Quando finalizar o teste submeta um pull request.
 
 ## Instruções
 
