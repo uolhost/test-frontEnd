@@ -97,13 +97,13 @@ margin: 0
 
 #busca button{
   float: left;
-    background-image: url("../images/limpar-busca.jpg");
-    background-repeat:no-repeat;
-    height: 34px;
-    width: 41px;
-    border:0px;
-    cursor: pointer;
-  }
+  background-image: url("../images/limpar-busca.jpg");
+  background-repeat:no-repeat;
+  height: 34px;
+  width: 41px;
+  border:0px;
+  cursor: pointer;
+}
 
 #tabela-resultado{
   margin: 0;
@@ -117,10 +117,7 @@ margin: 0
   border-bottom:1px solid #dedede;
 }
 
-#clientes_table{width: 100%}
-
 /*** Configuração da Tabela ***/
-
 .result div{
   float: left;
   height: 68px;
