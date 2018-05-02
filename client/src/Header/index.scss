@@ -1,0 +1,33 @@
+.header__container {
+  width: 100%;
+  height: 130px;
+  background: linear-gradient(0deg, #228db3 25%, #0c80ac 100%);
+}
+
+.header__container--vignette {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 130px;
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(255, 255, 255, 0.12) 20%,
+    rgba(255, 255, 255, 0.12) 80%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+  background-blend-mode: color-burn;
+  z-index: 10;
+}
+
+.header__container--bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  background: linear-gradient(0deg, #0b7399, #2e8ab0);
+  box-shadow: 0px 1px 0px 0px rgba(98, 164, 192, 1) inset,
+    0px 1px 6px 0px rgba(0, 0, 0, 0.2);
+}
