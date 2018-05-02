@@ -10,6 +10,6 @@ const Clients = () => (
       <button className="clients__container--button"> Novo Cliente </button>
     </div>
   </div>
-)
+);
 
 export default Clients;
