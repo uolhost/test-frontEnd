@@ -1,0 +1,26 @@
+.clients__container {
+  display: flex;
+  justify-content: space-between;
+  width: 77%;
+  height: 40px;
+  margin: 48px auto;
+}
+
+.clients__container--title {
+  font-family: Arial;
+  font-size: 20px;
+  color: #484848;
+}
+
+.clients__container--button {
+  width: 104px;
+  height: 28px;
+  background: #1082be;
+  color: #fff;
+  font-family: Arial;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 0px 0px rgba(16, 87, 124, 1);
+}
