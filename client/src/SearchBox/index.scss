@@ -1,0 +1,19 @@
+.searchBox__input {
+  display: flex;
+  align-items: center;
+  width: 262px;
+  height: 36px;
+  padding-left: 10px;
+  font-family: Arial;
+  font-size: 16px;
+  color: #ccd5eb;
+  border: 1px solid #bcc6d0;
+  border-radius: 3px;
+}
+
+.searchBox__container {
+  width: 77%;
+  font-size: 40px;
+  background: #faf9f9;
+  margin: 0 auto;
+}
