@@ -1,6 +1,8 @@
 import axios from 'axios';
+import _ from 'lodash';
 import React, { Component } from 'react';
 import UserResults from '../../components/UserResults/index';
+import SearchBox from '../SearchBox/index';
 
 class User extends Component {
   state = {
@@ -25,14 +27,28 @@ class User extends Component {
           return 0;
         });
         this.setState({ users });
+        this.setState({ filteredUsers: users });
+        console.log(this.state.filteredUsers)
       });
   }
 
+  filterUserFromSearch = (searchTerm) => {
+    let filteredUsers = this.state.users;
+    filteredUsers = filteredUsers
+      .filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.contact.toLowerCase().includes(searchTerm.toLowerCase()));
+    this.setState({ filteredUsers });
+  };
+
   render() {
     return (
-      <UserResults userInfo={this.state} />
+      <div>
+        <SearchBox filterUser={this.filterUserFromSearch} />
+        <UserResults userInfo={this.state} />
+      </div>
     );
   }
 }
 
 export default User;
+

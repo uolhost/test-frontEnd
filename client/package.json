@@ -6,9 +6,10 @@
     "/*": {
       "target": "http://localhost:7000"
     }
-  },  
+  },
   "dependencies": {
     "axios": "^0.18.0",
+    "lodash": "^4.17.10",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
     "react": "^16.3.2",

@@ -4,7 +4,7 @@ import './index.css';
 class UsersResults extends Component {
   state = {};
   render() {
-    const users = this.props.userInfo.users.map((user, index) => (
+    const users = this.props.userInfo.filteredUsers.map((user, index) => (
       <div key={index} className="results__user">
         <div className="results__user--avatar"><img src="./img/user-img.png" alt="User Avatar" /></div>
         <div className="results__user--info">
