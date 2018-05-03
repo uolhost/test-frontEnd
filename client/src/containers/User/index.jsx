@@ -21,7 +21,6 @@ class User extends Component {
         let users = res.data;
         users = _.orderBy(users, 'name', 'asc');
         this.setState({ users });
-        this.filterUserFromSearch('');
       });
   }
 
