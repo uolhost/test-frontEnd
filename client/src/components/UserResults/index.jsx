@@ -4,9 +4,17 @@ import './index.css';
 class UsersResults extends Component {
   state = {};
   render() {
-    const users = this.props.userInfo.filteredUsers.map((user, index) => (
+    const { currentPage, usersPerPage, filteredUsers } = this.props.userInfo;
+    console.log(this.props)
+    // const indexOfLastUser = currentPage * usersPerPage;
+    // const indexOfFirstUser = indexOfLastUser - usersPerPage;
+    // const maxUserPerPage = filteredUsers.slice(indexOfFirstUser, indexOfLastUser)
+
+    const renderUsers = this.props.userInfo.map((user, index) => (
       <div key={index} className="results__user">
-        <div className="results__user--avatar"><img src="./img/user-img.png" alt="User Avatar" /></div>
+        <div className="results__user--avatar">
+          <img src="./img/user-img.png" alt="User Avatar" />
+        </div>
         <div className="results__user--info">
           <div className="results__user--name">{user.name}</div>
           <div className="results__user--email">{user.contact}</div>
@@ -22,7 +30,7 @@ class UsersResults extends Component {
 
     return (
       <div className="results__container">
-        {users}
+        {renderUsers}
       </div>
     );
   }
