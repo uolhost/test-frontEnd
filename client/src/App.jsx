@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Header from './Header/index';
-import PageTitle from './PageTitle/index';
-import Clients from './Clients/index';
-import SearchBox from './SearchBox/index';
-import UsersResults from './UserResults/index';
+import Header from './components/Header/index';
+import PageTitle from './components/PageTitle/index';
+import Clients from './components/Clients/index';
+import SearchBox from './components/SearchBox/index';
+// import UsersResults from './components/UserResults/index';
+import User from './containers/User/index';
 import './App.css';
 
 class App extends Component {
@@ -15,7 +16,8 @@ class App extends Component {
         <PageTitle />
         <Clients />
         <SearchBox />
-        <UsersResults />
+        <User />
+        {/* <UsersResults /> */}
       </div>
     );
   }

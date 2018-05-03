@@ -11,6 +11,17 @@ class UsersResults extends Component {
     axios.get('http://localhost:3000/users')
       .then((res) => {
         const users = res.data;
+        users.sort((a, b) => {
+          const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+          const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        });
         this.setState({ users });
       });
   }
