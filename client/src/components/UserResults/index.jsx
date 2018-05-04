@@ -4,11 +4,7 @@ import './index.css';
 class UsersResults extends Component {
   state = {};
   render() {
-    const { currentPage, usersPerPage, filteredUsers } = this.props.userInfo;
-    console.log(this.props)
-    // const indexOfLastUser = currentPage * usersPerPage;
-    // const indexOfFirstUser = indexOfLastUser - usersPerPage;
-    // const maxUserPerPage = filteredUsers.slice(indexOfFirstUser, indexOfLastUser)
+    const { filteredUsers } = this.props.userInfo;
 
     const renderUsers = this.props.userInfo.map((user, index) => (
       <div key={index} className="results__user">

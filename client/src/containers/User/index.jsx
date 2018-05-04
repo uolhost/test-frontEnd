@@ -10,7 +10,6 @@ class User extends Component {
     users: [],
     filteredUsers: [],
     maxUsers: [],
-    maxPages: '',
     usersPerPage: 5,
     currentPage: 1,
   }
@@ -18,9 +17,10 @@ class User extends Component {
   componentDidMount() {
     axios.get('http://localhost:3000/users')
       .then((res) => {
-        let users = res.data;
-        users = _.orderBy(users, 'name', 'asc');
-        this.setState({ users });
+        const users = res.data;
+        const usersSorted = _.orderBy(users, 'name', 'asc');
+        this.setState({ users: usersSorted });
+        this.filterUserFromSearch('');
       });
   }
 
@@ -29,35 +29,38 @@ class User extends Component {
       .filter(user => user.name.toLowerCase()
         .includes(searchTerm.toLowerCase()) ||
         user.contact.toLowerCase().includes(searchTerm.toLowerCase()));
-    const sliced = filteredUsers.slice(0, 5);
-    this.maxUsersPerPages(sliced);
+    this.setState({filteredUsers})
+    this.maxUsersPerPages(filteredUsers);
   };
 
 
-  maxUsersPerPages(arr) {
-    const { usersPerPage, currentPage, filteredUsers } = this.state;
+  maxUsersPerPages(filteredUsers) {
+    const { usersPerPage, currentPage } = this.state;
     const lastUserIndex = currentPage * usersPerPage;
     const firstUserIndex = lastUserIndex - usersPerPage;
-    const maxUser = arr.slice(firstUserIndex, lastUserIndex);
-    this.setState({ filteredUsers: maxUser });
+    const maxUsers = filteredUsers.slice(firstUserIndex, lastUserIndex);
+    this.setState({ maxUsers });
   }
 
-  pageNum() {
-    const { usersPerPage, currentPage, users } = this.state;
-    const pageNum = [];
-    for (let i = 1; i <= Math.ceil(users.length / usersPerPage); i++) {
-      pageNum.push(i);
-    }
-    this.setState({ maxPages: pageNum })
-  }
+  // pageNum() {
+  //   const { usersPerPage, currentPage, users } = this.state;
+  //   const pageNum = [];
+  //   for (let i = 1; i <= Math.ceil(users.length / usersPerPage); i++) {
+  //     pageNum.push(i);
+  //   }
+  //   this.setState({ maxPages: pageNum });
+  // }
 
 
   render() {
     return (
       <div>
         <SearchBox filterUser={this.filterUserFromSearch} />
-        <UserResults userInfo={this.state.filteredUsers} />
-        <Pagination handlePages={this.handlePagesNum} />
+        <UserResults userInfo={this.state.maxUsers} />
+        <Pagination
+          handlePages={this.handlePagesNum}
+          userState={this.state}
+        />
       </div>
     );
   }

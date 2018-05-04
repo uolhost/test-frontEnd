@@ -1,0 +1,22 @@
+.pagination__container{
+  width: 77%;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+
+.results__stats {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #666666;
+
+  span {
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+.pagination ul,li {
+  list-style: none;
+}
+
