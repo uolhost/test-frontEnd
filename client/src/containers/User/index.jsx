@@ -9,7 +9,7 @@ class User extends Component {
   state = {
     users: [],
     filteredUsers: [],
-    maxUsers: [],
+    paginatedUsers: [],
     usersPerPage: 5,
     currentPage: 1,
   }
@@ -29,36 +29,30 @@ class User extends Component {
       .filter(user => user.name.toLowerCase()
         .includes(searchTerm.toLowerCase()) ||
         user.contact.toLowerCase().includes(searchTerm.toLowerCase()));
-    this.setState({filteredUsers})
-    this.maxUsersPerPages(filteredUsers);
+    this.setState({ filteredUsers });
+    this.paginatedUsers(filteredUsers);
   };
 
 
-  maxUsersPerPages(filteredUsers) {
+  paginatedUsers(filteredUsers) {
     const { usersPerPage, currentPage } = this.state;
     const lastUserIndex = currentPage * usersPerPage;
     const firstUserIndex = lastUserIndex - usersPerPage;
-    const maxUsers = filteredUsers.slice(firstUserIndex, lastUserIndex);
-    this.setState({ maxUsers });
+    const paginatedUsers = filteredUsers.slice(firstUserIndex, lastUserIndex);
+    this.setState({ paginatedUsers });
   }
 
-  // pageNum() {
-  //   const { usersPerPage, currentPage, users } = this.state;
-  //   const pageNum = [];
-  //   for (let i = 1; i <= Math.ceil(users.length / usersPerPage); i++) {
-  //     pageNum.push(i);
-  //   }
-  //   this.setState({ maxPages: pageNum });
-  // }
-
+  handlePages() {
+    
+  }
 
   render() {
     return (
       <div>
         <SearchBox filterUser={this.filterUserFromSearch} />
-        <UserResults userInfo={this.state.maxUsers} />
+        <UserResults userInfo={this.state.paginatedUsers} />
         <Pagination
-          handlePages={this.handlePagesNum}
+          handlePages={this.handlePages}
           userState={this.state}
         />
       </div>
