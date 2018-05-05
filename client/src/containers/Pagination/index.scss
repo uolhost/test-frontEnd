@@ -18,8 +18,6 @@
 }
 
 .pagination__pages {
-
-  ul { 
     margin: 0;
     padding: 0;
     display: flex;
@@ -29,7 +27,6 @@
     list-style: none;
     color: #e1e1e1;
     font-size: 12px;
-  }
 
   li {
     display: flex;
