@@ -3,39 +3,41 @@ import _ from 'lodash';
 import './index.css';
 
 class Pagination extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: '',
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(event) {
+    this.props.handlePages(event.target.id);
+  }
 
   renderPageHandler() {
-    const { currentPage, usersPerPage, filteredUsers } = this.props.userState;
-    _.range(filteredUsers.length / usersPerPage).map((n) => {
-      const className = currentPage === n ? 'pagination__page--active' : 'pagination__page--inactive';
+    if (this.props.userState.filteredUsers.length > 5) {
       return (
-        <li className={className}>{n}</li>
+      <ul className="pagination__pages">
+        <li className="pagination__pages--backAll"> <span>&laquo;</span> </li>
+        <li className="pagination__pages--backOne"> <span>&lsaquo;</span> </li>
+        {this.renderPageNumbers()}
+        <li className="pagination__pages--forwardOne"> <span>&rsaquo;</span> </li>
+        <li className="pagination__pages--forwardAll"> <span>&raquo;</span> </li>
+      </ul>
       );
-    });
-
-  
-
-
-    // currentPage = 3; _.range(5).map(n => {
-    //   const className = currentPage === n ? 'classe do atual' : 'classe normal';
-    //   return `<li className=${className}>${n}</li>`
-    //   });
-
-    // return (
-    //   <div className="pagination__container--">
-    //     <ul className="pagination">
-    //       <li className="page-item">
-    //         <span aria-hidden="true">&laquo;</span>
-    //       </li>
-    //       <li className="page-item">1</li>
-    //       <li className="page-item">
-    //         <span aria-hidden="true">&raquo;</span>
-    //       </li>
-    //     </ul>
-    //   </div>
-    // );
+    } 
   }
+
+  renderPageNumbers() {
+    const { currentPage, usersPerPage, filteredUsers } = this.props.userState;
+    const maxPages = Math.ceil((filteredUsers.length / usersPerPage) + 1);
+    return _.range(1, maxPages).map((n) => {
+      const className = currentPage === n ? 'pagination__pages--active' : 'pagination__pages--inactive';
+      return (<li className={className} key={n} id={n} onClick={this.handleClick}>{n}</li>);
+    });
+  }
+
 
   renderResultsStats() {
     const { paginatedUsers, filteredUsers } = this.props.userState;

@@ -25,32 +25,33 @@ class User extends Component {
   }
 
   filterUserFromSearch = (searchTerm) => {
+    this.setState({ currentPage: 1 });
     const filteredUsers = this.state.users
       .filter(user => user.name.toLowerCase()
         .includes(searchTerm.toLowerCase()) ||
         user.contact.toLowerCase().includes(searchTerm.toLowerCase()));
     this.setState({ filteredUsers });
-    this.paginatedUsers(filteredUsers);
-  };
+    this.paginateUsers(filteredUsers);
+  }
 
+  handlePages = async (n) => {
+    await this.setState({ currentPage: Number(n) });
+    this.paginateUsers(this.state.filteredUsers);
+  }
 
-  paginatedUsers(filteredUsers) {
+  paginateUsers(users) {
     const { usersPerPage, currentPage } = this.state;
     const lastUserIndex = currentPage * usersPerPage;
     const firstUserIndex = lastUserIndex - usersPerPage;
-    const paginatedUsers = filteredUsers.slice(firstUserIndex, lastUserIndex);
+    const paginatedUsers = users.slice(firstUserIndex, lastUserIndex);
     this.setState({ paginatedUsers });
-  }
-
-  handlePages() {
-    
   }
 
   render() {
     return (
       <div>
         <SearchBox filterUser={this.filterUserFromSearch} />
-        <UserResults userInfo={this.state.paginatedUsers} />
+        <UserResults userState={this.state.paginatedUsers} />
         <Pagination
           handlePages={this.handlePages}
           userState={this.state}

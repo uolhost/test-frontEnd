@@ -16,7 +16,14 @@
   }
 }
 
-.pagination ul,li {
-  list-style: none;
+.pagination__pages {
+  display: flex;
+  .ul, li {
+    list-style: none;
+  }
+}
+
+.pagination__pages--active {
+  background-color: black;
 }
 
