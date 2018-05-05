@@ -23,6 +23,10 @@ $table-dark-color: #f2f5f6;
   border-bottom: 1px solid #dedede;
   font-family: Arial, sans-serif;
   font-size: 14px;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .results__user--avatar {

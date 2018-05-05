@@ -16,17 +16,20 @@ class Pagination extends Component {
   }
 
   renderPageHandler() {
-    if (this.props.userState.filteredUsers.length > 5) {
+    const { filteredUsers, usersPerPage } = this.props.userState;
+    if (filteredUsers.length > usersPerPage) {
       return (
-      <ul className="pagination__pages">
-        <li className="pagination__pages--backAll"> <span>&laquo;</span> </li>
-        <li className="pagination__pages--backOne"> <span>&lsaquo;</span> </li>
-        {this.renderPageNumbers()}
-        <li className="pagination__pages--forwardOne"> <span>&rsaquo;</span> </li>
-        <li className="pagination__pages--forwardAll"> <span>&raquo;</span> </li>
-      </ul>
+        <div className="pagination__pages">
+        <ul>
+          <li> <span>&laquo;</span> </li>
+          <li> <span>&lsaquo;</span> </li>
+          {this.renderPageNumbers()}
+          <li> <span>&rsaquo;</span> </li>
+          <li> <span>&raquo;</span> </li>
+        </ul>
+        </div>
       );
-    } 
+    }
   }
 
   renderPageNumbers() {
