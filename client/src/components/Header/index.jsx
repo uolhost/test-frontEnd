@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import './index.css';
 
 const Header = () => (
@@ -8,7 +8,7 @@ const Header = () => (
         <img src="/img/logo.png" alt="uolhost logo" />
       </div>
     </div>
-  </div> 
+  </div>
 );
 
 export default Header;

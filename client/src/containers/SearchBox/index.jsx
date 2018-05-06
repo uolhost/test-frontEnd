@@ -7,27 +7,36 @@ class SearchBox extends Component {
     this.state = {
       searchTerm: '',
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ searchTerm: e.target.value });
-    this.props.filterUser(e.target.value);
+  handleChange = async (e) => {
+    await this.setState({ searchTerm: e.target.value });
+    this.props.filterUser(this.state.searchTerm);
+  }
+
+  handleClick = async () => {
+    await this.setState({ searchTerm: ''})
+    this.props.filterUser(this.state.searchTerm);
   }
 
   render() {
     return (
       <div className="searchBox__container">
         Buscar
-        <div>
+        <div className="searchBox__fields">
           <input
-            className="searchBox__input"
+            className="searchBox__fields--input"
             type="text"
             name="search"
             value={this.state.searchTerm}
             onChange={this.handleChange}
             placeholder="Buscar por nome ou e-mail..."
           />
+          <button 
+          className="searchBox__fields--button"
+          onClick={this.handleClick}>
+            x
+          </button>
         </div>
       </div>
     );
