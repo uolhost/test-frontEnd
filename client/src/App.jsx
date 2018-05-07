@@ -3,7 +3,6 @@ import Header from './components/Header/index';
 import PageTitle from './components/PageTitle/index';
 import Clients from './components/Clients/index';
 import User from './containers/User/index';
-import './App.css';
 
 class App extends Component {
   state = {}

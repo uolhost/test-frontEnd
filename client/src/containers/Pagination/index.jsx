@@ -12,7 +12,7 @@ class Pagination extends Component {
   handleClick(e) {
     const { usersPerPage, filteredUsers } = this.props.userState;
     const maxPages = Math.ceil((filteredUsers.length / usersPerPage));
-    if(e.target.value <= maxPages ) {
+    if (e.target.value <= maxPages) {
       this.props.handlePages(e.target.value);
     }
   }
@@ -39,6 +39,7 @@ class Pagination extends Component {
         </ul>
       );
     }
+    return false;
   }
 
   renderPageNumbers() {
@@ -46,7 +47,10 @@ class Pagination extends Component {
     const maxPages = Math.ceil((filteredUsers.length / usersPerPage) + 1);
     return _.range(1, maxPages).map((n) => {
       const className = currentPage === n ? 'pagination__pages--active' : 'pagination__pages--inactive';
-      return (<li className={className} value={n} key={n} onClick={this.handleClick}>{n}</li>);
+      return (
+        <li className={className} value={n} key={n} onClick={this.handleClick}>
+          {n}
+        </li>);
     });
   }
 

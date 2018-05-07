@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 
 class SearchBox extends Component {
@@ -15,7 +16,7 @@ class SearchBox extends Component {
   }
 
   handleClick = async () => {
-    await this.setState({ searchTerm: ''})
+    await this.setState({ searchTerm: '' });
     this.props.filterUser(this.state.searchTerm);
   }
 
@@ -32,9 +33,10 @@ class SearchBox extends Component {
             onChange={this.handleChange}
             placeholder="Buscar por nome ou e-mail..."
           />
-          <button 
-          className="searchBox__fields--button"
-          onClick={this.handleClick}>
+          <button
+            className="searchBox__fields--button"
+            onClick={this.handleClick}
+          >
             x
           </button>
         </div>
@@ -42,5 +44,9 @@ class SearchBox extends Component {
     );
   }
 }
+
+SearchBox.propTypes = {
+  filterUser: PropTypes.func.isRequired,
+};
 
 export default SearchBox;

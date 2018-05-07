@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 
 class UsersResults extends Component {
@@ -29,5 +30,14 @@ class UsersResults extends Component {
     );
   }
 }
+
+
+UsersResults.propTypes = {
+  userState: PropTypes.arrayOf(PropTypes.object),
+};
+
+UsersResults.defaultProps = {
+  userState: '',
+};
 
 export default UsersResults;
