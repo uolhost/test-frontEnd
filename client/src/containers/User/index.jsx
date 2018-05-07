@@ -14,7 +14,7 @@ class User extends Component {
     currentPage: 1,
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     axios.get('http://localhost:3000/users')
       .then((res) => {
         const users = res.data;
@@ -39,7 +39,7 @@ class User extends Component {
     this.paginateUsers(this.state.filteredUsers);
   }
 
-  paginateUsers(users) {
+  paginateUsers = (users) => {
     const { usersPerPage, currentPage } = this.state;
     const lastUserIndex = currentPage * usersPerPage;
     const firstUserIndex = lastUserIndex - usersPerPage;
