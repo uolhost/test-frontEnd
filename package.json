@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "description": "Prova criada para avaliar os candidatos de frontEnd",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "postinstall": "cd client && npm install"
   },
   "repository": {
     "type": "git",
@@ -14,5 +18,10 @@
     "connect": "^3.4.1",
     "open": "0.0.5",
     "serve-static": "^1.11.1"
+  },
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3"
   }
 }

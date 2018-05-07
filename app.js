@@ -1,10 +1,13 @@
-var app         = require('connect')();
-var serverStactic = require('serve-static');
-var open = require('open');
+const express = require('express');
+const users = require('./users.json');
 
-app.use(serverStactic('app'));
+const app = express();
+app.use(express.static('public'))
 
-open('http://localhost:7000');
-app.listen(7000, function() {
-  console.log('Listening in port 7000');
+app.get('/users', (req, res) => {
+  res.json(users);
 });
+
+const PORT = process.env.PORT || 7000;
+app.listen(PORT);
+console.log(`Server Listening on Port ${PORT}`);

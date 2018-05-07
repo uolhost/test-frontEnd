@@ -1,0 +1,96 @@
+$table-light-color: #ffffff;
+$table-dark-color: #f2f5f6;
+
+.results__container {
+  display: flex;
+  flex-direction: column;
+  width: 77%;
+  font-size: 15px;
+  margin: 25px auto;
+  border: 1px solid #dedede;
+  
+  div.results__user:nth-child(even) {
+    background-color: $table-dark-color;
+  }
+}
+
+.results__user {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 68px;
+  background-color: $table-light-color;
+  border-bottom: 1px solid #dedede;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.results__user--avatar {
+  flex: 0 0 10%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.results__user--info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.results__user--name {
+  font-weight: bold;
+  color: #1082be;
+}
+
+.results__user--email {
+  color: #484848;
+  
+}
+
+.results__user--status {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  color: #666666;
+
+  span {
+    margin-left: 10px;
+  }
+
+  .ACTIVE {
+    min-width: 10px;
+    min-height: 10px;
+    border-radius: 50%;
+    background-color: #49ad5b;
+  }
+
+  .EXIPIRED {
+    min-width: 10px;
+    min-height: 10px;
+    border-radius: 50%;
+    background-color: #cb2a2a;
+  }
+
+  .WAITING {
+    min-width: 10px;
+    min-height: 10px;
+    border-radius: 50%;
+    background-color: #feb63e;
+  }
+
+  .WAITING-ACCEPTED {
+    min-width: 10px;
+    min-height: 10px;
+    border-radius: 50%;
+    background-color: #3a3a3a;
+  }
+}
+
+.results__user--manage {
+  flex: 0 0 10%;
+}
